@@ -22,14 +22,15 @@ public class CourseSessionTest extends TestCase {
      */
     public void testEnrollStudents() {
         CourseSession courseSession = new CourseSession("ENGL", "101");
-
         Student student1 = new Student("LiMing");
         courseSession.enroll(student1);
         assertEquals(1, courseSession.getNumberOfStudents());
+        assertEquals(student1, courseSession.get(0));
 
         Student student2 = new Student("XiaoHong");
         courseSession.enroll(student2);
         assertEquals(2, courseSession.getNumberOfStudents());
+        assertEquals(student2, courseSession.get(1));
 
     }
 }

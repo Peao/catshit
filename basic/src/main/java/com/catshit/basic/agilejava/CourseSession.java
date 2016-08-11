@@ -1,5 +1,7 @@
 package com.catshit.basic.agilejava;
 
+import java.util.ArrayList;
+
 /**
  * 课程信息
  *
@@ -9,7 +11,7 @@ public class CourseSession {
     private String department;
     private String number;
 
-    private int numberOfStudents = 0;
+    private ArrayList<Student> students = new ArrayList<>();
 
     public CourseSession(String department, String number) {
         this.department = department;
@@ -25,10 +27,15 @@ public class CourseSession {
     }
 
     public int getNumberOfStudents() {
-        return numberOfStudents;
+        return students.size();
     }
 
     public void enroll(Student student) {
-        numberOfStudents = numberOfStudents + 1;
+        students.add(student);
     }
+
+    public Student get(int index) {
+        return students.get(index);
+    }
+
 }
