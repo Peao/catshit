@@ -21,4 +21,12 @@ public class PawnTest extends TestCase {
 
     }
 
+    public void testCreateWhitePawn() {
+        Pawn whitePawn = new Pawn();
+
+        assertEquals("white", whitePawn.getColor());
+
+    }
+
+
 }
