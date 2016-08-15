@@ -1,9 +1,6 @@
 package com.catshit.basic.agilejava;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 /**
  * 课程信息
@@ -57,6 +54,10 @@ public class CourseSession {
         int numberOfDays = 16 * 7 - 3;
         calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
         return calendar.getTime();
+    }
+
+    public List<Student> getAllStudents() {
+        return students;
     }
 
 }
