@@ -11,16 +11,22 @@ public class CourseSession {
     private String department;
     private String number;
     private Date startDate;
+    private int numberOfCredits;// 学分
 
     private ArrayList<Student> students = new ArrayList<>();
 
-    public CourseSession(String department, String number, Date startDate) {
+
+    public static CourseSession create(String department, String number, Date startDate) {
+        return new CourseSession(department, number, startDate);
+    }
+
+    private CourseSession(String department, String number, Date startDate) {
         this.department = department;
         this.number = number;
         this.startDate = startDate;
     }
 
-    public CourseSession(String department, String number) {
+    private CourseSession(String department, String number) {
         this(department, number, null);
     }
 
@@ -37,6 +43,7 @@ public class CourseSession {
     }
 
     public void enroll(Student student) {
+        student.addCredits(numberOfCredits);
         students.add(student);
     }
 
@@ -58,6 +65,10 @@ public class CourseSession {
 
     public List<Student> getAllStudents() {
         return students;
+    }
+
+    public void setNumberOfCredits(int numberOfCredits) {
+        this.numberOfCredits = numberOfCredits;
     }
 
 }

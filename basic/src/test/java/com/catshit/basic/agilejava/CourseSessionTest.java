@@ -10,7 +10,7 @@ import java.util.Date;
  * @author Leon
  */
 public class CourseSessionTest extends TestCase {
-
+    private static final int CREDITS = 3;
     private CourseSession session;
     private Date startDate;
 
@@ -18,7 +18,7 @@ public class CourseSessionTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         startDate = DateUtil.createDate(2003, 1, 6);
-        session = new CourseSession("ENGL", "101", startDate);
+        session = createCourseSession();
     }
 
     public void testCreate() {
@@ -32,11 +32,14 @@ public class CourseSessionTest extends TestCase {
         session.enroll(student1);
         assertEquals(1, session.getNumberOfStudents());
         assertEquals(student1, session.get(0));
+        assertEquals(CourseSessionTest.CREDITS, student1.getCredits());
 
         Student student2 = new Student("XiaoHong");
         session.enroll(student2);
         assertEquals(2, session.getNumberOfStudents());
         assertEquals(student2, session.get(1));
+        assertEquals(CourseSessionTest.CREDITS, student2.getCredits());
+
     }
 
     public void testCourseDates() {
@@ -44,6 +47,12 @@ public class CourseSessionTest extends TestCase {
 
         assertEquals(endDate, session.getEndDate());
         assertEquals(startDate, session.getStartDate());
+    }
+
+    private CourseSession createCourseSession() {
+        CourseSession session = CourseSession.create("ENGL", "101", startDate);
+        session.setNumberOfCredits(CourseSessionTest.CREDITS);
+        return session;
     }
 
 
