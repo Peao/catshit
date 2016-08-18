@@ -31,10 +31,9 @@ public class Student {
         return credits;
     }
 
-    public void setState(String state) {
+    public void setState(String state){
         this.state = state;
     }
-
     public boolean isInState() {
         return state.equals(Student.STATE);
     }

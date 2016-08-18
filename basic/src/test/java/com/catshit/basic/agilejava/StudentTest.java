@@ -55,5 +55,7 @@ public class StudentTest extends TestCase {
         assertFalse(student.isInState());
         student.setState(Student.STATE);
         assertTrue(student.isInState());
+
+
     }
 }
